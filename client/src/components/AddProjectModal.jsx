@@ -61,7 +61,7 @@ export default function AddProjectModal() {
             </div>
           </button>
           <div
-            className="modal fade"
+            className="modal"
             id="AddProjectModal"
             aria-labelledby="AddProjectModalLabel"
             aria-hidden="true"
