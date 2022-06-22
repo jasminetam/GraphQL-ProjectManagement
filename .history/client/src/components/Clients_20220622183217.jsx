@@ -10,7 +10,7 @@ export default function Clients() {
   if (error) return <p>Something Went Wrong</p>;
 
   return <>{!loading && !error && (
-
+<div className="d-flex justify-center align-center" >
     <table className="table table-hover mt-3 ">
           
       <thead>
@@ -28,7 +28,7 @@ export default function Clients() {
         </tbody>
      
       </table>
-     
+      </div>
       
   
     )}</>;

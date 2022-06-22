@@ -28,7 +28,7 @@ export default function Clients() {
         </tbody>
      
       </table>
-     
+      </div>
       
   
     )}</>;

@@ -12,7 +12,6 @@ export default function Clients() {
   return <>{!loading && !error && (
 
     <table className="table table-hover mt-3 ">
-          
       <thead>
         <tr>
           <th>Name</th>
@@ -26,9 +25,8 @@ export default function Clients() {
           <ClientRow key={client.id} client={client} />
         ))}
         </tbody>
-     
+        </div>
       </table>
-     
       
   
     )}</>;

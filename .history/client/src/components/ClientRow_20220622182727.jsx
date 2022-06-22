@@ -21,7 +21,7 @@ export default function ClientRow({ client }) {
     // },
   });
   return (
-    
+    </div
     <tr>
       <td>{client.name}</td>
       <td>{client.email}</td>

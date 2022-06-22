@@ -10,9 +10,7 @@ export default function Clients() {
   if (error) return <p>Something Went Wrong</p>;
 
   return <>{!loading && !error && (
-
-    <table className="table table-hover mt-3 ">
-          
+    <table className="table table-hover mt-3 flex">
       <thead>
         <tr>
           <th>Name</th>
@@ -25,11 +23,8 @@ export default function Clients() {
         {data.clients.map(client => (
           <ClientRow key={client.id} client={client} />
         ))}
-        </tbody>
-     
-      </table>
-     
-      
+      </tbody>
+  </table>
   
     )}</>;
 }

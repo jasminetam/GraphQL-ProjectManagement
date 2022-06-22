@@ -84,7 +84,7 @@ body {
   box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   width: 1000px;
-  height: 80vh;
+  height:100%;
   left: 50%;
   padding: 5vmin;
   position: fixed;
@@ -97,7 +97,6 @@ body {
   .content {
     width: 80%;
     height: 80%;
-    font-size: 10px;
   }
 }
 

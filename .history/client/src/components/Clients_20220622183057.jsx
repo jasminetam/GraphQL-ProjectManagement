@@ -12,7 +12,7 @@ export default function Clients() {
   return <>{!loading && !error && (
 
     <table className="table table-hover mt-3 ">
-          
+          <div className="d-flex justify-center align-center" >
       <thead>
         <tr>
           <th>Name</th>
@@ -26,9 +26,8 @@ export default function Clients() {
           <ClientRow key={client.id} client={client} />
         ))}
         </tbody>
-     
+        </div>
       </table>
-     
       
   
     )}</>;

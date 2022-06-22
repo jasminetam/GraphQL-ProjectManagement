@@ -21,7 +21,7 @@ export default function ClientRow({ client }) {
     // },
   });
   return (
-    
+    <div className="d-flex gap-3 mb-4">
     <tr>
       <td>{client.name}</td>
       <td>{client.email}</td>
@@ -31,6 +31,7 @@ export default function ClientRow({ client }) {
           <FaTrash />
         </button>
       </td>
-    </tr>
+      </tr>
+      
   );
 }

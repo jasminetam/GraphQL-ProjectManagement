@@ -10,14 +10,16 @@ export default function Home() {
       <div className="bg bg2"></div>
       <div className="bg bg3"></div>
       <div className="content">
-        <div className="d-flex gap-3 mb-4 ">
+        <div className="d-flex gap-3 mb-4 justify-content-center">
+          <div className="">
           <AddClientModal />
           <AddProjectModal />
         </div>
         <Projects />
         <hr />
-
-        <Clients />
+      
+          <Clients />
+          </div>
       </div>
     </div>
   );
