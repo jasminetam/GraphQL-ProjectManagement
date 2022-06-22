@@ -14,7 +14,7 @@ export default function DeleteProjectButton({ projectId }) {
     })
 
   return (
-      <div className="d-flex m-2 ms-auto">
+      <div className="d-flex mt-5 ms-auto">
           <button className="btn btn-danger" onClick={deleteProject}>
               <FaTrash className="icon" /> Delete Project
           </button>

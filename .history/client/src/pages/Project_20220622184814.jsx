@@ -29,7 +29,7 @@ export default function Project() {
             <h1>{data.project.name}</h1>
             <p>{data.project.description}</p>
             <h5 className="mt-3">Project Status</h5>
-            <p>{data.project.status}</p>
+            <p className="lead">{data.project.status}</p>
 
             <ClientInfo client={data.project.client} />
             <EditProjectForm project={data.project} />
