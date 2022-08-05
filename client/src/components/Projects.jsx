@@ -1,17 +1,16 @@
-import Spinner from './Spinner';
-import { useQuery } from '@apollo/client';
-import { GET_PROJECTS } from '../queries/projectQueries';
-import ProjectCard from './ProjectCard';
+import Spinner from "./Spinner";
+import { useQuery } from "@apollo/client";
+import { GET_PROJECTS } from "../queries/projectQueries";
+import ProjectCard from "./ProjectCard";
 
 export default function Projects() {
   const { loading, error, data } = useQuery(GET_PROJECTS);
 
   if (loading) return <Spinner />;
-  if (error) return <h1>Something Went Wrong</h1>;
+  if (error) return <p>Something Went Wrong</p>;
 
   return (
-    <div className="w-100">
-      <div className="col-12">
+    <>
       {data.projects.length > 0 ? (
         <div className="row mt-4">
           {data.projects.map((project) => (
@@ -20,8 +19,7 @@ export default function Projects() {
         </div>
       ) : (
         <p>No Projects</p>
-        )}
-        </div>
-    </div>
+      )}
+    </>
   );
 }

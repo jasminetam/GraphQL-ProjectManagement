@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { GET_PROJECT } from '../queries/projectQueries';
-import { UPDATE_PROJECT } from '../mutations/projectMutation';
+import { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { GET_PROJECT } from "../queries/projectQueries";
+import { UPDATE_PROJECT } from "../mutations/projectMutation";
 import { toast } from 'react-toastify';
 
 export default function EditProjectForm({ project }) {
   const [name, setName] = useState(project.name);
   const [description, setDescription] = useState(project.description);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
   const [updateProject] = useMutation(UPDATE_PROJECT, {
     variables: { id: project.id, name, description, status },
@@ -17,19 +17,20 @@ export default function EditProjectForm({ project }) {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (name === '' || description === '' || status === '') {
-      return toast.error('Please fill in all fields');
+    if (name === "" || description === "" || status === "") {
+      return toast.error("Please fill in all fields");
     }
+
     updateProject(name, description, status);
-    toast.success('Updated successfully');
+    toast.success("Updated successfully")
   };
 
   return (
     <div className="mt-5">
-      <h5>Update Project Details</h5>
+      <h3>Update Project Details</h3>
       <form onSubmit={onSubmit}>
         <div className="mb-3">
-          <label className="form-label h6">Name</label>
+          <label className="form-label">Name</label>
           <input
             type="text"
             className="form-control"
@@ -39,7 +40,7 @@ export default function EditProjectForm({ project }) {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label h6">description</label>
+          <label className="form-label">description</label>
           <textarea
             className="form-control"
             id="description"
@@ -48,26 +49,24 @@ export default function EditProjectForm({ project }) {
           ></textarea>
         </div>
         <div className="mb-3">
-          <label className="form-label h6">Status</label>
+          <label className="form-label">Status</label>
           <select
             className="form-select"
             id="status"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
-            <option value="" disabled>
-              Select Current Status
-            </option>
+            <option value="" disabled>Select Current Project Status</option>
             <option value="new">Preparing</option>
             <option value="progress">In Progress</option>
             <option value="completed">Completed</option>
           </select>
         </div>
         <div className="d-flex justify-content-end">
-          <button type="submit" className="btn btn-primary">
-            Submit
+        <button type="submit" className="btn btn-primary">
+          Submit
           </button>
-        </div>
+          </div>
       </form>
     </div>
   );

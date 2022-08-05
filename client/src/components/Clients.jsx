@@ -10,28 +10,26 @@ export default function Clients() {
   if (error) return <p>Something Went Wrong</p>;
 
   return (
-    <>
+    <div className="w-100">
       {!loading && !error && (
-        <div className="w-100">
         <div className="d-flex overflow-auto">
-          <table className="table table-hover mt-3">
-            <thead>
-              <tr>
-                <th className="h5">Name</th>
-                <th className="h5">Email</th>
-                <th className="h5">Phone</th>
-                <th className="h5"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.clients.map((client) => (
-                <ClientRow key={client.id} client={client} />
-              ))}
-            </tbody>
+        <table className="table table-hover mt-3">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.clients.map((client) => (
+              <ClientRow key={client.id} client={client} />
+            ))}
+          </tbody>
           </table>
           </div>
-          </div>
       )}
-    </>
+    </div>
   );
 }
