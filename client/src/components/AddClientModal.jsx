@@ -4,6 +4,7 @@ import { useMutation } from "@apollo/client";
 import { FaUsers } from "react-icons/fa";
 import { ADD_CLIENT } from "../mutations/clientMutations";
 import { GET_CLIENTS } from "../queries/clientQueries";
+import { toast } from 'react-toastify';
 
 export default function AddClientModal() {
   const [name, setName] = useState("");
@@ -27,7 +28,7 @@ export default function AddClientModal() {
     e.preventDefault();
 
     if (name === "" || email === "" || phone === "") {
-      return alert("Please fill in all fields");
+      return toast.error("Please fill in all fields");
     }
 
     addClient(name, email, phone);
@@ -45,7 +46,7 @@ export default function AddClientModal() {
         data-bs-toggle="modal"
         data-bs-target="#AddClientModal"
       >
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center h5">
           <FaUsers className="icon" />
           <div>Add Client</div>
         </div>

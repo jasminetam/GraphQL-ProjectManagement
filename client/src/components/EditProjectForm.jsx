@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { GET_PROJECT } from '../queries/projectQueries';
 import { UPDATE_PROJECT } from '../mutations/projectMutation';
+import { toast } from 'react-toastify';
 
 export default function EditProjectForm({ project }) {
   const [name, setName] = useState(project.name);
@@ -17,10 +18,10 @@ export default function EditProjectForm({ project }) {
     e.preventDefault();
 
     if (name === '' || description === '' || status === '') {
-      return alert('Please fill in all fields');
+      return toast.error('Please fill in all fields');
     }
-
     updateProject(name, description, status);
+    toast.success('Updated successfully');
   };
 
   return (
@@ -28,7 +29,7 @@ export default function EditProjectForm({ project }) {
       <h5>Update Project Details</h5>
       <form onSubmit={onSubmit}>
         <div className="mb-3">
-          <label className="form-label">Name</label>
+          <label className="form-label h6">Name</label>
           <input
             type="text"
             className="form-control"
@@ -38,7 +39,7 @@ export default function EditProjectForm({ project }) {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">description</label>
+          <label className="form-label h6">description</label>
           <textarea
             className="form-control"
             id="description"
@@ -47,21 +48,26 @@ export default function EditProjectForm({ project }) {
           ></textarea>
         </div>
         <div className="mb-3">
-          <label className="form-label">Status</label>
+          <label className="form-label h6">Status</label>
           <select
             className="form-select"
             id="status"
             value={status}
             onChange={(e) => setStatus(e.target.value)}
           >
+            <option value="" disabled>
+              Select Current Status
+            </option>
             <option value="new">Preparing</option>
             <option value="progress">In Progress</option>
             <option value="completed">Completed</option>
           </select>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <div className="d-flex justify-content-end">
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   );

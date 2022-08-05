@@ -5,13 +5,13 @@ export default function ClientInfo({client}) {
     <>
     <h3 className="mt-5">Client Information</h3>
     <ul className="list-group">
-      <li className="list-group-item">
+      <li className="list-group-item h6">
         <FaIdBadge className="icon" />{client.name}
       </li>
-      <li className="list-group-item">
+      <li className="list-group-item h6">
         <FaEnvelope className="icon" />{client.email}
       </li>
-      <li className="list-group-item">
+      <li className="list-group-item h6">
         <FaPhone className="icon" />{client.phone}
       </li>
     </ul>

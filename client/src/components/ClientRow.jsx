@@ -12,9 +12,9 @@ export default function ClientRow({ client }) {
   return (
     
     <tr>
-      <td>{client.name}</td>
-      <td>{client.email}</td>
-      <td>{client.phone}</td>
+      <td className="h5">{client.name}</td>
+      <td className="h5">{client.email}</td>
+      <td className="h5">{client.phone}</td>
       <td>
         <button className="btn btn-danger btn-sm" onClick={deleteClient}>
           <FaTrash />

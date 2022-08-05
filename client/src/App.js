@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Project from "./pages/Project";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -35,15 +37,16 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
           <Header />
-          
-            <div className="container">
+          <div className="w-100">
+            <div className="d-flex align-items-center justify-content-center">
+            <ToastContainer position="bottom-center" limit={1} />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/project/:id" element={<Project />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
-          
+            </div>
         </Router>
       </ApolloProvider>
     </>

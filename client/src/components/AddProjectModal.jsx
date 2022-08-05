@@ -4,6 +4,7 @@ import { useMutation, useQuery } from "@apollo/client";
 import { GET_PROJECTS } from "../queries/projectQueries";
 import { GET_CLIENTS } from "../queries/clientQueries";
 import { ADD_PROJECT } from "../mutations/projectMutation";
+import { toast } from 'react-toastify';
 
 export default function AddProjectModal() {
   const [name, setName] = useState("");
@@ -31,7 +32,7 @@ export default function AddProjectModal() {
     e.preventDefault();
 
     if (name === "" || description === "" || status === "") {
-      return alert("Please fill in all fields");
+      return toast.error("Please fill in all fields");
     }
 
     addProject(name, description, clientId, status);
@@ -55,7 +56,7 @@ export default function AddProjectModal() {
             data-bs-toggle="modal"
             data-bs-target="#AddProjectModal"
           >
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center h5">
               <FaList className="icon" />
               <div>New Project</div>
             </div>

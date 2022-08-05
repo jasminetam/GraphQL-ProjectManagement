@@ -1,4 +1,3 @@
-import logo from "./assets/logo.png";
 
 export default function Header() {
   return (
@@ -6,8 +5,8 @@ export default function Header() {
           <div className="container">
               <a className="navbar-brand" href="/">
                   <div className="d-flex">
-                      <img src={logo} alt="logo" className="mr-2" />
-                      <div>Project Management</div>
+                      <img src="/logo1.png" alt="logo" className="img-fluid mr-2" />
+                      <h1>Project Management</h1>
                       </div>                
               </a>
           </div>
