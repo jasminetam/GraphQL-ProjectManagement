@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { GET_PROJECT } from "../queries/projectQueries";
-import { UPDATE_PROJECT } from "../mutations/projectMutation";
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { GET_PROJECT } from '../queries/projectQueries';
+import { UPDATE_PROJECT } from '../mutations/projectMutation';
 
 export default function EditProjectForm({ project }) {
   const [name, setName] = useState(project.name);
   const [description, setDescription] = useState(project.description);
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('');
 
   const [updateProject] = useMutation(UPDATE_PROJECT, {
     variables: { id: project.id, name, description, status },
@@ -16,8 +16,8 @@ export default function EditProjectForm({ project }) {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (name === "" || description === "" || status === "") {
-      return alert("Please fill in all fields");
+    if (name === '' || description === '' || status === '') {
+      return alert('Please fill in all fields');
     }
 
     updateProject(name, description, status);
@@ -25,7 +25,7 @@ export default function EditProjectForm({ project }) {
 
   return (
     <div className="mt-5">
-      <h3>Update Project Details</h3>
+      <h5>Update Project Details</h5>
       <form onSubmit={onSubmit}>
         <div className="mb-3">
           <label className="form-label">Name</label>

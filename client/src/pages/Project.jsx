@@ -18,18 +18,20 @@ export default function Project() {
   return (
     <>
       {!loading && !error && (
-        <div>
+        <div className="d-flex flex-wrap">
           <div className="bg"></div>
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
           <div className="content">
-            <Link to="/" className="btn btn-ligh btn-sm w-25 d-inline ms-auto">
-              Back
-            </Link>
+            <div className="d-flex align-items-start justify-content-start">
+            <Link to="/" className="btn btn-ligh btn-sm w-25 d-inline">
+              <h5>Back</h5>
+              </Link>
+              </div>
             <h1>{data.project.name}</h1>
             <p>{data.project.description}</p>
-            <h5 className="mt-3">Project Status</h5>
-            <p>{data.project.status}</p>
+            <h4 className="mt-3">Project Status</h4>
+            <h5>{data.project.status}</h5>
 
             <ClientInfo client={data.project.client} />
             <EditProjectForm project={data.project} />
