@@ -5,11 +5,11 @@ import Projects from "../components/Projects";
 
 export default function Home() {
   return (
-    <div>
+    <div className="w-100">
       <div className="bg"></div>
       <div className="bg bg2"></div>
       <div className="bg bg3"></div>
-      <div className="w-100 d-flex align-items-center justify-content-center">
+      <div className="d-flex align-items-center justify-content-center">
       <div className="content">
         <div className="d-flex gap-3 mb-4 ">
           <AddClientModal />
@@ -17,6 +17,7 @@ export default function Home() {
         </div>
         <Projects />
         <hr />
+
         <Clients />
         </div>
         </div>

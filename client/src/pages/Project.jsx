@@ -16,21 +16,21 @@ export default function Project() {
   if (error) return <p>Something Went Wrong</p>;
 
   return (
-    <div className="w-100 h-100">
+    <>
       {!loading && !error && (
-        <div className="d-flex align-items-center justify-content-center">
+        <div>
           <div className="bg"></div>
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
           <div className="content">
-            <div className="d-flex align-items-start justify-content-start">
-            <Link to="/" className="btn btn-ligh btn-sm w-20 d-inline">
-              <h5>Back</h5>
+            <div className="d-flex">
+            <Link to="/" className="btn btn-ligh btn-sm w-25 d-inline">
+              <p>Back</p>
               </Link>
               </div>
             <h1>{data.project.name}</h1>
             <p>{data.project.description}</p>
-            <h4 className="mt-3">Project Status</h4>
+            <h5 className="mt-3">Project Status</h5>
             <p>{data.project.status}</p>
 
             <ClientInfo client={data.project.client} />
@@ -39,6 +39,6 @@ export default function Project() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

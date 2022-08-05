@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { FaList } from "react-icons/fa";
-import { useMutation, useQuery } from "@apollo/client";
-import { GET_PROJECTS } from "../queries/projectQueries";
-import { GET_CLIENTS } from "../queries/clientQueries";
-import { ADD_PROJECT } from "../mutations/projectMutation";
+import { useState } from 'react';
+import { FaList } from 'react-icons/fa';
+import { useMutation, useQuery } from '@apollo/client';
+import { GET_PROJECTS } from '../queries/projectQueries';
+import { GET_CLIENTS } from '../queries/clientQueries';
+import { ADD_PROJECT } from '../mutations/projectMutation';
 import { toast } from 'react-toastify';
 
 export default function AddProjectModal() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [clientId, setClientId] = useState("");
-  const [status, setStatus] = useState("new");
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [clientId, setClientId] = useState('');
+  const [status, setStatus] = useState('');
 
   const [addProject] = useMutation(ADD_PROJECT, {
     variables: { name, description, clientId, status },
@@ -31,16 +31,16 @@ export default function AddProjectModal() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (name === "" || description === "" || status === "") {
-      return toast.error("Please fill in all fields");
+    if (name === '' || description === '' || status === '') {
+      return toast.error('Please fill in all fields');
     }
 
     addProject(name, description, clientId, status);
 
-    setName("");
-    setDescription("");
-    setStatus("new");
-    setClientId("");
+    setName('');
+    setDescription('');
+    setStatus('new');
+    setClientId('');
   };
 
   if (loading) return null;
@@ -56,7 +56,7 @@ export default function AddProjectModal() {
             data-bs-toggle="modal"
             data-bs-target="#AddProjectModal"
           >
-            <div className="d-flex align-items-center h5">
+            <div className="d-flex align-items-center">
               <FaList className="icon" />
               <div>New Project</div>
             </div>
@@ -110,6 +110,9 @@ export default function AddProjectModal() {
                           value={status}
                           onChange={(e) => setStatus(e.target.value)}
                         >
+                          <option value="" disabled default>
+                            Select Current Status
+                          </option>
                           <option value="new">Preparing</option>
                           <option value="progress">In Progress</option>
                           <option value="completed">Completed</option>
